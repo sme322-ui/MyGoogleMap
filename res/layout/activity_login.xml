@@ -1,0 +1,36 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+    <ListView
+        android:id="@+id/user_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp" />
+    <EditText
+        android:layout_height="wrap_content"
+        android:id="@+id/etName"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:hint="使用者名稱"
+        android:ems="10"/>
+    <EditText
+        android:layout_height="wrap_content"
+        android:id="@+id/etPassword"
+        android:layout_width="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:hint="密碼(數字)"
+        android:inputType="numberPassword"
+        android:ems="10"/>
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="登入" />
+
+</LinearLayout>
