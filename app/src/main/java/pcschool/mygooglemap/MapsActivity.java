@@ -600,7 +600,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onInit(int arg0) {
                     // TTS 初始化成功
                     if (arg0 == TextToSpeech.SUCCESS) {
-                        // 指定的語系: 英文(美國)
+                        // 指定的語系:中文
                         // Locale l = Locale.US;  // 不要用 Locale.ENGLISH, 會預設用英文(印度)
                         //Locale.TAIWAN(locale.Traditional.Han.Taiwan);
                         // 目前指定的【語系+國家】TTS, 已下載離線語音檔, 可以離線發音
