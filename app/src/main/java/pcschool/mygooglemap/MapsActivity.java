@@ -154,9 +154,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Context context;
     private TextView textView1;
     private BroadcastReceiver receiver2 = null;
-
-   private LocationManager mLocationManager;
-   private LocationListener mLocationListener;
+    private LocationManager mLocationManager;
+    private LocationListener mLocationListener;
     public static final String MY_BROADCAST_TAG = "com.pcschool.mygooglemap2";
     private static final LatLng DEFAULT_TTS = new LatLng(23.836, 120.64);//松柏街
     private static final LatLng DEFAULT_TTS1 = new LatLng(24.925711, 121.176023);//埔心牧場
@@ -222,11 +221,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private String orignalName;
     String topic;
     int qos;
-
-
     double lat;
     double lng;
-
     private double longitude;
     private double latitude;
     private final long MINIMUM_DISTANCECHANGE_FOR_UPDATE = 1;
@@ -246,8 +242,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private InputStream is;//輸入流
     private static String address = "7C:2A:31:C7:4D:03";//要連接的藍芽設備MAC位址
     private final String TARGET_DEVICE_NAME = "PHIL-PC";
-
-
     //序列化user object
     //  String custom = gson.toJson(new User());
     private ServiceConnection connection;
@@ -278,19 +272,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private OutputStream outStream = null;
     private TextView subId;
-
-
-
     private String clientId;
     private LatLng latLng;
     private Intent intent;
-
-    //建立MqttAndroidClient
-
-
-
-
-
     private void requestBluetoothPermission(){
 //判斷系統版本
         if (Build.VERSION.SDK_INT >= 23) {
@@ -314,21 +298,14 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
     BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-
-
-
-
-    Runnable updateMarker = new Runnable() {
+	Runnable updateMarker = new Runnable() {
         @Override
         public void run() {
 
             marker.icon(BitmapDescriptorFactory.fromResource(R.drawable.c));
 
             handler2.postDelayed(this, MARKER_UPDATE_INTERVAL);
-            //web service請求
-
-
-        }
+      }
     };
     private Handler handler2;
     private LatLng hereLocation;
@@ -445,9 +422,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Toast.makeText(context, "bind Service 已關閉", Toast.LENGTH_SHORT);
                 unBindButton.setEnabled(false);
                 stopService(intent);
-
-
-
             }
         });
         Button button1 = findViewById(R.id.button1);
@@ -467,16 +441,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 				Uri uri = Uri.parse("https://examples.sencha.com/extjs/7.4.0/examples/admin-dashboard/?fbclid=IwAR0M2vHKcl5a7Fl5VR1oqlg8tZI9vyszHcgP88UNyuAa-GpqllSZ0NEmRBI#dashboard");
 				Intent intent2 = new Intent(Intent.ACTION_VIEW, uri);
 				startActivity(intent2);
-
-            }
+	    }
         });
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_STATE_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_PEERS_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION);
         intentFilter.addAction(WifiP2pManager.WIFI_P2P_THIS_DEVICE_CHANGED_ACTION);
-
-
-
         if (!mBluetoothAdapter.isEnabled()) {
 
             Intent enableIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
@@ -505,10 +475,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         String appLinkAction = appLinkIntent.getAction();
         Uri appLinkData = appLinkIntent.getData();
         Gson gson;
-
-
-
-    }
+}
 
     @SuppressLint("MissingPermission")
     private void addProximityAlert7(LatLng latLng) {
@@ -631,7 +598,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     break;
                 case R.id.scanBtn:
-
                     //devicesInfo_2.setText("");
                     btAdapter.startDiscovery();
                     receiver2 = new BTReceiver();
@@ -654,10 +620,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     break;
 
             }
-
-
-        }
-
+       }
     }
     public String creatingJsonString() throws JSONException, IOException {
         JSONArray pets = new JSONArray();
@@ -703,7 +666,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             if (mBluetoothAdapter.isDiscovering()) {
                 mBluetoothAdapter.cancelDiscovery();
             }
-//開啟搜尋
+             //開啟搜尋
             mBluetoothAdapter.startDiscovery();
             if(WifiP2pManager.WIFI_P2P_CONNECTION_CHANGED_ACTION.equals( action )){
 
@@ -735,8 +698,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                             if(info.groupOwnerAddress!=null){
                                 Log.d(Utils.LOGTAG,address.getHostAddress());
-
-
                             }
                             else{
                                 Log.d(Utils.LOGTAG,"沒有發現Group owner ,無法連線");
@@ -757,9 +718,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         public void onSuccess() {
                             Log.d(Utils.LOGTAG,"Wifi 對點裝置掃描成功");
                         }
-
-
-                        /**
+                         /**
                          * The operation failed
                          *
                          * @param reasonCode The reason for failure could be one of {@link },
@@ -774,8 +733,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             }
 
         }
-
-
     }
     private void openGPS() throws Exception {
         boolean gps = mLocationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
@@ -866,8 +823,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         @Override
         public void run() {
             BluetoothSocket socket;
-
-
             try {
                 socket = device.createRfcommSocketToServiceRecord(UUID.fromString(String.valueOf(MY_UUID)));
                 cs = ss.accept();
@@ -906,8 +861,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public HTTPSession(Socket cs) {
 
             }
-
-            /**
+           /**
              * When an object implementing interface <code>Runnable</code> is used
              * to create a thread, starting the thread causes the object's
              * <code>run</code> method to be called in that separately executing
@@ -919,9 +873,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
              * @see Thread#run()
              */
             @Override
-            public void run() {
-
-            }
+            public void run() {}
         }
         private void sendDataToServer(BluetoothSocket socket) {
             try {
@@ -955,11 +907,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             File root = Environment.getExternalStorageDirectory();
             File file = new File(root, "b.jpg");
             return file;
-        }//寫檔
-
-
-
-
+        }
     }
 
 
@@ -1237,9 +1185,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             mMap.addMarker(new MarkerOptions().position(new LatLng(lat,lng)).title("MyMarker"));
             //     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(
             //           new LatLng(location.getLatitude(), location.getLongitude()), 16));
-
-
-        }
+         }
     }
 
     private class WFSearchProcess {
