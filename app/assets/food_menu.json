@@ -1,0 +1,31 @@
+[{
+  "id": "1001",
+  "name": "Chicken",
+  "price": 1200,
+  "type": "main course"
+},
+  {
+    "id": "1002",
+    "name": "Lemon Soda",
+    "price": 1400,
+    "type": "drink"
+  },
+  {
+    "id": "1003",
+    "name": "Veggi Cheese",
+    "price": 500,
+    "type": "main course"
+  },
+  {
+    "id": "1004",
+    "name": "Beer",
+    "price": 1800,
+    "type": "drink"
+  },
+  {
+    "id": "1005",
+    "name": "Soda",
+    "price": 1400,
+    "type": "appetizer"
+  }
+]
