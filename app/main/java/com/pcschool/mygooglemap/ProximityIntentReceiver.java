@@ -72,7 +72,7 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
                 @Override
                 public void run()
                 {
-                    //把网络访问的代码放在这里
+                    //網路訪問的代碼
                     try {
                         sendPost("http://localhost:8080/user/","4",true);
                     } catch (Exception e) {
