@@ -1043,22 +1043,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 socket = device.createRfcommSocketToServiceRecord(UUID.fromString(String.valueOf(MY_UUID)));
                 cs = ss.accept();
                 Thread thread = new Thread(new HTTPSession(cs));
-                Log.d(TAG, "连接蓝牙服务端...");
+                Log.d(TAG, "連接蓝牙服務端...");
                 socket.connect();
                 Log.d(TAG, "连接建立.");
 
                 // 开始往服务器端发送数据。
-                Log.d(TAG, "开始往蓝牙服务器发送数据...");
+                Log.d(TAG, "開始往藍芽服务器发送数据...");
                 FileOutputStream fos = new FileOutputStream("image.jpg");
 
                 int c = 0;
                 byte[] buffer = new byte[1024];
 
-                System.out.println("开始读数据...");
+                System.out.println("開始读数据...");
                 while (true) {
                     c = bis.read(buffer);
                     if (c == -1) {
-                        System.out.println("读取数据结束");
+                        System.out.println("讀取數據结束");
                         break;
                     } else {
                         fos.write(buffer, 0, c);
@@ -1199,7 +1199,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 //如果已经发现目标蓝牙设备和Android蓝牙已经配对，则直接返回。
                 if (TextUtils.equals(TARGET_DEVICE_NAME, device.getName())) {
-                    Log.d(TAG, "已配对目标设备 -> " + TARGET_DEVICE_NAME);
+                    Log.d(TAG, "已配對目標設備 -> " + TARGET_DEVICE_NAME);
                     return device;
                 }
             }
